@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>고1 수학 튜터 MVP</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; line-height: 1.5; }
+    textarea, input { width: 100%; box-sizing: border-box; margin: .25rem 0 1rem; padding: .6rem; }
+    button { padding: .7rem 1rem; cursor: pointer; }
+    pre { background: #f6f8fa; padding: 1rem; overflow: auto; }
+  </style>
+</head>
+<body>
+  <h1>고1 수학 튜터 에이전트 MVP</h1>
+  <label>API 주소 <input id="api" value="http://127.0.0.1:8000" /></label>
+  <label>문제/OCR 텍스트 <textarea id="problem" rows="4">x^2 - 5x + 6 = 0의 두 근을 구하시오.</textarea></label>
+  <label>출판사 <input id="publisher" value="샘플출판사" /></label>
+  <button id="solve">풀이 요청</button>
+  <pre id="result">결과가 여기에 표시됩니다.</pre>
+  <script>
+    document.querySelector('#solve').addEventListener('click', async () => {
+      const api = document.querySelector('#api').value.replace(/\/$/, '');
+      const response = await fetch(`${api}/solve`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          problem_text: document.querySelector('#problem').value,
+          publisher: document.querySelector('#publisher').value || null,
+        }),
+      });
+      document.querySelector('#result').textContent = JSON.stringify(await response.json(), null, 2);
+    });
+  </script>
+</body>
+</html>

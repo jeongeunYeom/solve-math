@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sample-linear-1",
+    "publisher": "샘플출판사",
+    "grade": "고1",
+    "subject": "공통수학1",
+    "chapter": "방정식과 부등식",
+    "section": "일차방정식",
+    "concept": "일차방정식",
+    "keywords": ["일차방정식", "이항", "계수", "상수항"],
+    "content": "일차방정식은 미지수의 차수가 1인 방정식이다. 상수항을 이항하고 양변을 미지수의 계수로 나누어 해를 구한다.",
+    "source_license": "샘플 데이터"
+  },
+  {
+    "id": "sample-quadratic-1",
+    "publisher": "샘플출판사",
+    "grade": "고1",
+    "subject": "공통수학1",
+    "chapter": "방정식과 부등식",
+    "section": "이차방정식",
+    "concept": "이차방정식의 근",
+    "keywords": ["이차방정식", "인수분해", "근", "판별식"],
+    "content": "이차방정식은 최고차항의 차수가 2인 방정식이다. 인수분해가 가능하면 각 인수가 0이 되도록 하여 근을 구한다.",
+    "source_license": "샘플 데이터"
+  }
+]
