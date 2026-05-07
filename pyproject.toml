@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "math-tutor-agent"
+version = "0.1.0"
+description = "High-school grade 1 math tutor backend MVP with textbook RAG context."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.110",
+  "pydantic>=2.6",
+  "uvicorn>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.26",
+  "pytest>=8.0",
+  "ruff>=0.4",
+]
+pdf = [
+  "pypdf>=4.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["math_tutor_agent*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
